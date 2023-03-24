@@ -2,11 +2,11 @@ const app = require("./src/app.js");
 const sequelize = require("./src/db");
 require("./src/models/Personaje")
 require("./src/models/Pelicula")
+require("./src/models/Genero")
 
-const force = true;
- async function main() {
+  async function main() {
   try {
-  await sequelize.sync();
+  await sequelize.sync({force: true});
   app.listen(4000);
   console.log("Server on port 4000");
 } catch (error) {

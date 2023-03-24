@@ -22,4 +22,6 @@ const Pelicula = sequelize.define('pelicula', {
 
 });
 
+
+
 module.exports = Pelicula;
