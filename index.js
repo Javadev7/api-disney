@@ -3,6 +3,7 @@ const sequelize = require("./src/db");
 require("./src/models/Personaje")
 require("./src/models/Pelicula")
 require("./src/models/Genero")
+require("./src/models/User")
 
   async function main() {
   try {
