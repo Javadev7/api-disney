@@ -8,14 +8,17 @@ const User = sequelize.define('user', {
     primaryKey: true
   },
   username: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   },
-  hash: {
-    type: DataTypes.STRING,
+  password: {
+    type: DataTypes.TEXT,
     allowNull: false
   }
 
+}, {
+  sequelize,
+  modelName: 'User'
 });
 
 module.exports = User;

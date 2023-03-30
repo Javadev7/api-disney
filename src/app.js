@@ -3,17 +3,23 @@ const morgan = require("morgan");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
-
+const session = require('express-session');
+const authRoutes = require('./routes/auth.routes');
+const peliculasRoutes = require('./routes/peliculas.routes');
 
 require('./db.js')
 
 const app = express();
 
-// Import routes
-/* import projectRoutes from "./routes/projects.routes.js";
-import taskRoutes from "./routes/tasks.routes.js"; */
+app.use(express.json());
+app.use(session({
+  secret: 'tu_secreto',
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use('/auth', authRoutes);
+app.use('/peliculas', peliculasRoutes);
 
-// Middlewares
 app.use(morgan("dev"));
 app.use(express.json());
 

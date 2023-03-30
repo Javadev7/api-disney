@@ -1,5 +1,6 @@
 const app = require("./src/app.js");
 const sequelize = require("./src/db");
+
 require("./src/models/Personaje")
 require("./src/models/Pelicula")
 require("./src/models/Genero")
