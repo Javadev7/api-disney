@@ -23,7 +23,7 @@ app.use('/peliculas', peliculasRoutes);
 app.use(morgan("dev"));
 app.use(express.json());
 
-const JWT_SECRET = process.env.JWT_SECRET;
+// const JWT_SECRET = process.env.JWT_SECRET;
 
 
 // Routes
