@@ -7,9 +7,9 @@ function verifyToken(req, res, next) {
   }
   try {
     const token = bearer.replace('Bearer ', '')
-    console.log(token);
     const decoded = jwt.verify(token, 'tu_secreto');
     req.user = decoded;
+    console.log(decoded, req.user)
     next();
   } catch (err) {
     console.error(err);

@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('disney', 'postgres', 'Java0707', {
   host: 'localhost',
   dialect: 'postgres',
-  logging: (msg) => console.log('[Sequelize] ' + msg) // Activar salida de registro detallada con prefijo
+  //logging: (msg) => console.log('[Sequelize] ' + msg) // Activar salida de registro detallada con prefijo
 
 });
 
