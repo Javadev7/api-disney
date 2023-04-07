@@ -1,9 +1,9 @@
 const app = require("./src/app.js");
 const sequelize = require("./src/db");
 
-require("./src/models/Personaje")
-require("./src/models/Pelicula")
-require("./src/models/Genero")
+require("./src/models/Character")
+require("./src/models/Movie")
+require("./src/models/Genre")
 require("./src/models/User")
 
   async function main() {

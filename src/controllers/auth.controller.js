@@ -27,10 +27,9 @@ const signup = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  const { username, password } = req.body;
-  const userlogin = req.body
   try {
-    const user = await UserServices.getOneByUsername( username );
+    const { username, password } = req.body;
+    const user = await UserServices.getOneByUsername(username);
     if (!user) {
       return res
         .status(401)
@@ -43,7 +42,9 @@ const login = async (req, res) => {
         .json({ message: "Nombre de usuario o contraseña incorrectos" });
     }
 
-    const token = AuthServices.signToken(userlogin);
+    const {id} = user;
+
+    const token = AuthServices.signToken({id, username});
 
     // const token = jwt.sign({ id: user.id }, "tu_secreto", { expiresIn: "1h" });
     res.json({ user: { id: user.id, username: user.username }, token });

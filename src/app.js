@@ -5,7 +5,8 @@ const bcrypt = require('bcrypt');
 require('dotenv').config();
 const session = require('express-session');
 const authRoutes = require('./routes/auth.routes');
-const peliculasRoutes = require('./routes/peliculas.routes');
+const moviesRoutes = require('./routes/movies.routes');
+const charactersRoutes = require('./routes/characters.routes');
 
 require('./db.js')
 
@@ -18,7 +19,8 @@ app.use(session({
   saveUninitialized: true,
 }));
 app.use('/auth', authRoutes);
-app.use('/peliculas', peliculasRoutes);
+app.use('/movies', moviesRoutes);
+app.use('/characters', charactersRoutes)
 
 app.use(morgan("dev"));
 app.use(express.json());

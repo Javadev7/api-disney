@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
-const Pelicula = require("./Pelicula");
+const Movie = require("./Movie");
 
-const Personaje = sequelize.define('personaje', {
+const Character = sequelize.define('character', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -31,8 +31,8 @@ const Personaje = sequelize.define('personaje', {
 
 });
 
-  // Define la relación entre Personaje y Pelicula
-  Personaje.belongsToMany(Pelicula, { through: 'PersonajePelicula' });
-  Pelicula.belongsToMany(Personaje, { through: 'PersonajePelicula' });
+  // Define la relación entre Character y Movie
+  Character.belongsToMany(Movie, { through: 'characterMovie' });
+  Movie.belongsToMany(Character, { through: 'characterMovie' });
   
-module.exports =  Personaje;
+module.exports =  Character;

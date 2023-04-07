@@ -1,6 +1,8 @@
 const User = require("../models/User");
 
 class UserServices {
+
+
   static async createOne(newUser) {
     try {
       return await User.create(newUser);

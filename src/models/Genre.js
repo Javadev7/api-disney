@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 const  sequelize  = require('../db');
-const Pelicula = require('./Pelicula');
+const Movie = require('./Movie');
 
-const Genero = sequelize.define('genero', {
+const Genre = sequelize.define('genre', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -19,8 +19,8 @@ const Genero = sequelize.define('genero', {
 
 });
 
-  // Define la relación entre Genero y Pelicula
-  Genero.hasMany(Pelicula, { foreignKey: { allowNull: false } })
-  Pelicula.belongsTo(Genero);
+  // Define la relación entre Genero y Movie
+  Genre.hasMany(Movie, { foreignKey: { allowNull: false } })
+  Movie.belongsTo(Genre);
 
-module.exports = Genero;
+module.exports = Genre;
