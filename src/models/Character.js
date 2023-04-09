@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
-const Movie = require("./Movie");
 
 const Character = sequelize.define('character', {
   id: {
@@ -31,8 +30,6 @@ const Character = sequelize.define('character', {
 
 });
 
-  // Define la relación entre Character y Movie
-  Character.belongsToMany(Movie, { through: 'characterMovie' });
-  Movie.belongsToMany(Character, { through: 'characterMovie' });
+
   
 module.exports =  Character;

@@ -1,3 +1,4 @@
+const { request } = require("express");
 const charactersService = require("../services/characters.service");
 
 const getAllCharacters = async (req, res) => {
@@ -9,6 +10,18 @@ const getAllCharacters = async (req, res) => {
 
   }
 };
+
+const getDetailById = async (req, res) => {
+  try {
+    const characterId = req.params.id
+    // const userId = req.user.id;
+
+    const character = await charactersService.getCharacterDetail(characterId);
+    res.status(200).json({ data: character });
+  } catch (error) {
+    throw error.message;
+  }
+}
 
 const createCharacter = async (req, res, next) => {
   try {
@@ -60,4 +73,4 @@ const deleteCharacter = async (req, res, next) => {
   }
 }
 
-module.exports = {getAllCharacters, createCharacter, updateCharacter, deleteCharacter};
+module.exports = { getAllCharacters, createCharacter, updateCharacter, deleteCharacter, getDetailById };
