@@ -26,6 +26,7 @@ const getDetailById = async (req, res) => {
 const createCharacter = async (req, res, next) => {
   try {
     const { id } = req.user;
+    console.log(id)
     if(id != req.body.id )
     return next ({
       status: 401,
@@ -37,7 +38,7 @@ const createCharacter = async (req, res, next) => {
     res.status(200).json({ data: character });
 
   } catch (error) {
-    
+    console.log(error.message);
   }
 }
 
